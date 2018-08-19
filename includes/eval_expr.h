@@ -6,7 +6,7 @@
 /*   By: jchirk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 16:58:45 by jchirk            #+#    #+#             */
-/*   Updated: 2018/08/19 17:11:23 by jchirk           ###   ########.fr       */
+/*   Updated: 2018/08/19 17:17:14 by jchirk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ typedef struct	s_oper
 	int			precedence;
 }				t_oper;
 
-extern			g_opertab;
+extern	t_oper g_opertab[];
 
 #endif
