@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 17:05:32 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/19 20:46:35 by jchirk           ###   ########.fr       */
+/*   Updated: 2018/08/19 21:13:06 by jchirk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,17 @@ char		*remove_spaces(char *str)
 	return (ret);
 }
 
-int         count_tokens(char *str)                                               {
-	int     i;
-	int     len;
-	int     in_nb;
+int			inc_len(int len, int in_nb)
+{
+	len++;
+	if
+}
+
+int			count_tokens(char *str)
+{
+	int		i;
+	int		len;
+	int		in_nb;
 
 	i = 0;
 	in_nb = 0;
@@ -62,25 +69,28 @@ int         count_tokens(char *str)                                             
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 			in_nb = 1;
-		if (str[i] == '*' || str[i] == '/'  || str[i] == '%' || str[i] == '('
+		if (str[i] == '*' || str[i] == '/' || str[i] == '%' || str[i] == '('
 				|| str[i] == ')')
 		{
-			len++;                                                                            if (in_nb == 1)
-			{
-				in_nb = 0;
-				len++;                                                                        }
+			len++;
+			if (in_nb-- == 1)
+				len++;
 		}
 		if (str[i] == '-' || str[i] == '+')
 		{
-			if (i == 0)                                                                           in_nb = 1;
+			if (i == 0)
+				in_nb = 1;
 			if (!(str[i - 1] >= '0' && str[i - 1] <= '9') && i > 0)
 				in_nb = 1;
 			if ((str[i - 1] >= '0' && str[i - 1] <= '9') && i > 0)
 			{
 				len++;
-				if (in_nb == 1)                                                                   {                                                                                     in_nb = 0;
-					len++;                                                                        }                                                                             }
-		}                                                                                 i++;                                                                          }
+				if (in_nb-- == 1)
+					len++;
+			}
+		}
+		i++;
+	}
 	if (in_nb == 1)
 		len++;
 	return (len);
@@ -88,11 +98,11 @@ int         count_tokens(char *str)                                             
 
 t_token			*fill_result(char *str, t_token *input)
 {
-	int     i;
-	int		j;
-	int		in_nb;
-	int     nb;
-	int		signe;
+	int	i;
+	int	j;
+	int	in_nb;
+	int	nb;
+	int	signe;
 
 	i = 0;
 	j = 0;
@@ -106,7 +116,7 @@ t_token			*fill_result(char *str, t_token *input)
 			in_nb = 1;
 			nb = (nb * 10) + (str[i] - '0');
 		}
-		if (str[i] == '*' || str[i] == '/'  || str[i] == '%' || str[i] == '('
+		if (str[i] == '*' || str[i] == '/' || str[i] == '%' || str[i] == '('
 				|| str[i] == ')')
 		{
 			if (in_nb == 1)
@@ -150,7 +160,6 @@ t_token			*fill_result(char *str, t_token *input)
 				input[j++].type = 1;
 			}
 		}
-	//	printf("signe = %d\n", signe);
 		i++;
 	}
 	if (in_nb == 1)
@@ -183,7 +192,7 @@ t_result		parse_input(char *str)
 	return (result);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_result result;
 
@@ -203,6 +212,4 @@ int main(int ac, char **av)
 	printf("input5 type = %d\n", result.input[5].type);
 	printf("input6 value = %d\n", result.input[6].value);
 	printf("input6 type = %d\n", result.input[6].type);
-
 }
-
