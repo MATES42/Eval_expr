@@ -6,7 +6,7 @@
 /*   By: jchirk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 16:58:45 by jchirk            #+#    #+#             */
-/*   Updated: 2018/08/19 17:04:49 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/19 17:08:09 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ typdef struct	s_token
 {
 	void	*value;
 	int		type;
-}
+}				t_token;
 
 #endif
