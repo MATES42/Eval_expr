@@ -6,10 +6,33 @@
 /*   By: jchirk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 16:56:56 by jchirk            #+#    #+#             */
-/*   Updated: 2018/08/19 16:57:58 by jchirk           ###   ########.fr       */
+/*   Updated: 2018/08/19 17:31:05 by jchirk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eval_expr.h"
+#include "utils.h"
 
-void	fill_output(
+t_oper		g_opertab[] =
+{
+	{ '(', 0 },
+	{ ')', 0 },
+	{ '*', 1 },
+	{ '//', 1 },
+	{ '%', 1 },
+	{ '+', 2 },
+	{ '-', 2 }
+};
+
+t_token		*fill_output(t_token *input)
+{
+	int	i;
+	t_token	*output;
+
+	i = 0;
+	while (intput[i].type != (-1))
+	{
+		if
+		i++;
+	}
+}
